@@ -18,7 +18,7 @@
 # Examples
 # -------------
 # Copy the guessing-game repo from romeoplatoon org to sierraplatoon org:
-# ./copyrepos.sh oop-guessing-game romeoplatoon sierraplatoon
+# ./copyrepos.sh romeoplatoon sierraplatoon oop-guessing-game
 
 # See https://stackoverflow.com/questions/36273665/what-does-set-x-do
 [ "$DEBUG" == 'true' ] && set -x
@@ -26,9 +26,10 @@
 # See https://towardsdev.com/what-does-set-u-mean-in-a-bash-script-52b048271741
 set -u
 
-repo_name=$1
-source_org=$2
-target_org=$3
+source_org=$1
+target_org=$2
+repo_name=$3
+
 source_url="https://github.com/$source_org/$repo_name"
 target_url="https://github.com/$target_org/$repo_name"
 

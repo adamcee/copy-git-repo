@@ -20,7 +20,7 @@ as we currently create a new github org for each platoon/cohort.
 
 
 ## Examples
-Copy the guessing-game repo from romeoplatoon org to sierraplatoon org:
+Copy the oop-guessing-game repo from romeoplatoon org to sierraplatoon org:
 ```
 ./copyrepo_to_org.sh romeoplatoon sierraplatoon oop-guessing-game
 ```

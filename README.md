@@ -1,28 +1,29 @@
-
-# copyrepos
-
-Clone a list of repos from one github organization into another organization --
-the new repos have the same name.
-
-Intended to help us easily copy assignment repos from one org to another,
-as we currently create a new github org for each platoon/cohort.
-
-
 ## Reqirements
+- git, obviously
+- `gh` (See [here](https://cli.github.com/))
+- Generate a personal auth token [here](https://github.com/settings/tokens)
 
+## Usage
 
- - github cli tool.
-	- See https://cli.github.com/ for docs & install instructions.
-	- You must have this installed.
-	- You must then run `gh authenticate login` have the gh cli tool authenticate against and log
-	  into your github account so it has the necessary permission to do stuff.
- - git, obviously.
+1. Create a new file at the root level named 'token.txt' and save your [auth token](https://github.com/settings/tokens) here. This is necessary because auth tokens need to be kept secret and will be unique to the individual using this program.
 
+2. Install dependencies
+
+```sh
+pip install -r requirements.txt
+```
+
+3. Run
+
+```sh
+python main.py <repo-to-clone-from> <repo-to-push-to>
+```
 
 ## Examples
-Copy the oop-guessing-game repo from romeoplatoon org to sierraplatoon org:
-```
-./copyrepo_to_org.sh romeoplatoon sierraplatoon oop-guessing-game
+Copy all repos from romeoplatoon org to sierraplatoon org:
+
+```sh
+python main.py romeoplatoon sierraplatoon
 ```
 
 

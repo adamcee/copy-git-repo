@@ -3,7 +3,7 @@
 # Usage: copyrepo.sh source-repository-url destination-repository-url
 # Ex: copyrepo.sh https://github.com/exampleuser/source-repository.git https://github.com/exampleuser/destination-repository.git
 
-set -e
+# See source of this code - https://github.com/eleniums/copy-git-repo - for README with details
 
 # this is the name of the temporary directory to use
 temp_dir=copyrepo-temp

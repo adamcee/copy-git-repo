@@ -1,22 +1,22 @@
+import argparse
 from github import Github
 import subprocess
-import sys
 
-# define orgs
-from_org = sys.argv[1]
-to_org = sys.argv[2]
 
-print(from_org, to_org)
+def run(from_org, to_org, token):
+    # using an access token
+    gh = Github(token)
 
-# get hidden token
-token_file = open("token.txt", "r")
-token = token_file.read()
-token_file.close()
+    repos = gh.get_organization(from_org).get_repos()
 
-# using an access token
-gh = Github(token)
+    for repo in repos:
+        subprocess.run(['./copyrepo_to_org.sh', from_org, to_org, repo.name])
 
-repos = gh.get_organization(from_org).get_repos()
 
-for repo in repos:
-    subprocess.run(['./copyrepo_to_org.sh', from_org, to_org, repo.name])
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--from_org", required=True)
+    parser.add_argument("--to_org", required=True)
+    parser.add_argument("--token", required=True)
+    args = parser.parse_args()
+    run(args.from_org, args.to_org, args.token)
